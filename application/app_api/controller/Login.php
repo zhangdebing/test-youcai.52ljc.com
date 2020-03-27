@@ -13,7 +13,7 @@ use service\UtilService;
 use think\Cache;
 use think\Controller;
 use think\Request;
-class Login{
+class Login extends Controller{
     /**
      * 获取用户信息
      * @param Request $request
