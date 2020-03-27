@@ -23,6 +23,8 @@ class Login{
         $data = UtilService::postMore([
             ['code',''],
             ['cache_key',''],
+            ['vi',''],
+            ['encryptedData',''],
         ],$request);//获取前台传的code
         if(!Cache::has('eb_api_code_'.$data['cache_key'])) return JsonService::status('410','获取会话密匙失败');
         $data['session_key']=Cache::get('eb_api_code_'.$data['cache_key']);
@@ -35,7 +37,7 @@ class Login{
      */
     public function setCode(Request $request){
         list($code) = UtilService::postMore([['code', '']], $request, true);//获取前台传的code
-        if ($code == '') return JsonService::fail('');
+        if ($code == '') return JsonService::fail('参数错误');
         try{
             $userInfo = MiniProgramService::getUserInfo($code);
         }catch (\Exception $e){
