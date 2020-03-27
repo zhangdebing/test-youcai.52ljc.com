@@ -1,27 +1,19 @@
------BEGIN RSA PRIVATE KEY-----
-MIIEpAIBAAKCAQEAg31cvSGLU66aa26tQK07NEGzAst+JESOB1GmhPoWps/pj9Bj
-6iyfo9GvCPsuqgcipT16Mq7bh4vSNR/pONf4rCydWqDQmx2AZDUuPSmI3+AHUbM1
-mRSWcK6zDh3rexqqu7HpEYC9yP4ffbMYovVTrZXPuJ6s+EQqB52N0IIYkr9JYOqv
-YeJTIBSqfWNcYYnpda61yClafZ1bBWjWSLjKw4w73BOOCg4PtvucMNk8FGYZEdoZ
-Uu25dC64EdEEaP/nD5B3Nmm1KrOy3/ybB+9nD1drJ5R7CyaLxiu+wuDLnFl4PiT/
-hUnv+fcZpyXKSq8U0jY7QZCDYA5dNBSph13buQIDAQABAoIBADHbCZvIqTxMes57
-Q4O/azBQLODFaYm02KlbwyiuboJHWQanfArhapJBwf1EyBe95twCaF/pPuGxGT39
-YH+mG+qka/FeAlqeH/1e0K5uHjDMj9nhelQVo0kMZGXY4F1n6g6K0ZVKXCtmd2hA
-zPmUzWqG4CDfQTRNHCaRDaFegpS5GRwRoTESPtfOEHSkqAouzI1zYVvT1hzdG4B7
-Tk2wOp+PBNzZRU9YAMsVNYZpwIukD4Fz2J1Jai99oU1AWWTDPcW5ryRCEiF0s9zI
-G4VwU42KP42sNGmIwzV+P0mXDqErG3n/tvBdE8ffYFbgTjvujaW2y0YQsldPJ7qQ
-8uOMJVECgYEAyGZD4whwndwkObVuvhe6Cj92MbPYRx77zUn1vLn4/EV6iBcFlEMM
-61UAddnA5oMgrgBOGc0i2y5TE3qblsX9NY/fuY1Sy0rkHmPIR6YsvnmlusXFCI07
-zzyC8FufkKqW7A7J4SjMjCGSI3l62FxW703YFM9h3Ngn3yA8o55EZN0CgYEAp/in
-1glcR8M0HPm5dLXP1/9nP7DolK+vzEAXve3/hc1ZNKRC4ECed0tOSvKqhfP10l0Z
-iisp2ZN3b3FUvYonruHi8en7JSM1sUEZ0KF16tb4loOVYg1dAut+tA1Kzx50Jrzl
-b9ngxiuVTsun8ipgqRgmDgATOMf8Qr1UPh1Hpo0CgYBpFac3oC9duBiO4mMF728w
-/IJAIeyhrs+foM7pfiPgNZbBUkEss9RMezBYnC0ZM12poKNTyEwk3y/VIRABiiTz
-N1S7+i2WSNlCTlSxraP85dFQFXDywQzB6RtIauNLewjVFBQsq7ZHLTtyurr+Rb2Y
-kxtiHjVVF0whJshljBKVSQKBgQCmCe9mbWRR780A434Gt35YJrjaRbby22QsxCJz
-9eKDUkTe+4y7/kRm6gLfpVcZCNozcyI+6YH5+IK0n9PDdODbR6E9vywqPs7hg9fP
-2vskBBJBPpsZDNqne0CJHSaY7KKmdE1croQ5gHWcKUa/5FIedKeRaVOW6mEbW+n9
-aJYeNQKBgQCwtf8iWSb9TZGvfe3nBuXY4dMab850UPa7LmIpQRhVArCJWGxIZrDb
-Z68hIEJAxDwfVlen/c2/Mz9LffDes0cwImMXRA7p0imsds+e5iKTGLsN3igMbPb7
-bzub27hXheHdZ//vsRxKSQv5VBQw9q0MMC/4b7ja2nkkklnEUGBVNw==
------END RSA PRIVATE KEY-----
+<?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2016 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
+
+// [ 应用入口文件 ]
+
+// 定义应用目录
+define('APP_PATH', __DIR__ . '/../application/');
+
+
+// 加载框架引导文件123
+require __DIR__ . '/../thinkphp/start.php';
