@@ -8,7 +8,7 @@
 namespace service;
 
 
-class JsonService
+class Json
 {
     private static $SUCCESSFUL_DEFAULT_MSG = 'ok';
 

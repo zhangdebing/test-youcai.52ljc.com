@@ -167,7 +167,7 @@ class MiniProgramService
      * @throws \EasyWeChat\Core\Exceptions\HttpException
      * @throws \EasyWeChat\Core\Exceptions\InvalidArgumentException
      */
-    public static function sendSubscribeTemlate(string $touser,string $templateId,array $data,string $link ='')
+    public static function sendSubscribeTemlate(string $touser,string $templateId,array $data, $link ='')
     {
         return self::SubscribenoticeService()->to($touser)->template($templateId)->andData($data)->withUrl($link)->send();
     }

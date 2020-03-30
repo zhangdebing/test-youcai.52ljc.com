@@ -189,7 +189,7 @@ class SystemConfig extends Model
      * @throws \think\db\exception\ModelNotFoundException
      * @throws \think\exception\DbException
      */
-    public static function getAll($id,int $status = 1){
+    public static function getAll($id, $status = 1){
         $where['config_tab_id'] = $id;
         if($status == 1) $where['status'] = $status;
         return self::where($where)->order('sort desc,id asc')->select();

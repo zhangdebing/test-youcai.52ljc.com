@@ -56,7 +56,7 @@ class SystemConfigService
      * @param bool $isCaChe 是否获取缓存配置
      * @return bool|mixed|string
      */
-    public static function get($key, $default = '', bool $isCaChe = false)
+    public static function get($key, $default = '',  $isCaChe = false)
     {
         if ($isCaChe) {
             try {
