@@ -13,7 +13,7 @@
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
-
-
+// 引入composer
+require(__DIR__ . '/../vendor/autoload.php');
 // 加载框架引导文件123
 require __DIR__ . '/../thinkphp/start.php';
