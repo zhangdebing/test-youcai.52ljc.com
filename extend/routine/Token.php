@@ -1,12 +1,10 @@
 <?php
 namespace  routine;
 
-
 use Think\Model;
 /**
  * 小程序token辅助验证表
  * Class Token
- * @package app\core\model\routine
  */
 class Token extends Model
 {
@@ -20,8 +18,8 @@ class Token extends Model
      * */
     public static function SetRandString($uid,$randstring)
     {
-        if(self::be(['uid'=>$uid])) self::where('uid',$uid)->delete();
-        return self::set(['uid'=>$uid,'rand_string'=>$randstring,'add_time'=>time()]);
+        if(self::find(['uid'=>$uid])) self::where('uid',$uid)->delete();
+        return self::insert(['uid'=>$uid,'rand_string'=>$randstring,'add_time'=>time()]);
     }
 
     /*
