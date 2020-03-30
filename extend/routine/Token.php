@@ -1,15 +1,14 @@
 <?php
-namespace  app\core\model\routine;
+namespace  routine;
 
 
-use basic\ModelBasic;
-use traits\ModelTrait;
+use Think\Model;
 /**
  * 小程序token辅助验证表
  * Class Token
  * @package app\core\model\routine
  */
-class Token extends ModelBasic
+class Token extends Model
 {
     use ModelTrait;
 

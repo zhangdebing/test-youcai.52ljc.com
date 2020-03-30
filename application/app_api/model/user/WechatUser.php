@@ -70,24 +70,22 @@ class WechatUser extends Model
                 $spid = $routine['spid'];
             }
         }else if($routine['spid']) $spid = $routine['spid'];
-        if($routineInfo['unionid'] != '' && self::find(['unionid'=>$routineInfo['unionid']])){ //  判断unionid  存在根据unionid判断
+        //更新或新增用户
+        if($routineInfo['unionid'] != '' && self::find(['unionid'=>$routineInfo['unionid']])){ //根据unionid判断，更新用户信息
             self::where($routineInfo['unionid'],'unionid')->update($routineInfo);
             $uid = self::where('unionid',$routineInfo['unionid'])->value('uid');
             $routineInfo['code']=$spid;
             User::updateWechatUser($routineInfo,$uid);
-        }else if(self::find(['routine_openid'=>$routineInfo['routine_openid']])){ //根据小程序openid判断
+        }else if(self::find(['routine_openid'=>$routineInfo['routine_openid']])){ //根据小程序openid判断，更新用户信息
             self::where($routineInfo['routine_openid'],'routine_openid')->update($routineInfo);
             $uid = self::where('routine_openid',$routineInfo['routine_openid'])->value('uid');
             $routineInfo['code']=$spid;
             User::updateWechatUser($routineInfo,$uid);
-        }else{
+        }else{//新增用户
             $routineInfo['add_time'] = time();//用户添加时间
-            $routineInfo = self::set($routineInfo);
-//            if(User::isUserSpread($spid)) {
-//                $res = User::setRoutineUser($routineInfo,$spid); //用户上级
-//            }else
-            $res = User::setRoutineUser($routineInfo,$spid);
-            $uid = $res->uid;
+            $wechat_uid = self::insert($routineInfo);
+            $routineInfo['uid'] = $wechat_uid;
+            $uid = User::setRoutineUser($routineInfo,$spid);
         }
         
         $data['page'] = $page;

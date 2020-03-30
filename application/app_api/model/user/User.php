@@ -7,6 +7,7 @@
 namespace app\app_api\model\user;
 
 use app\core\util\SystemConfigService;
+use think\Db;
 use think\Request;
 use think\Session;
 use think\Model;
@@ -19,7 +20,7 @@ use think\Model;
 class User extends Model
 {
     /**
-     * 小程序用户更新zdb
+     * 小程序用户信息更新zdb
      */
     public static function updateWechatUser($wechatUser,$uid)
     {
@@ -53,33 +54,33 @@ class User extends Model
 
 
     /**
-     * 小程序用户添加
+     * 小程序用户添加zdb
      * @param $routineUser
      * @param int $spread_uid
      * @return object
      */
     public static function setRoutineUser($routineUser,$spread_uid = 0){
-        self::beginTrans();
+        Db::startTrans();
         $res1 = true;
-        if($spread_uid) $res1 = self::where('uid',$spread_uid)->inc('spread_count',1);
-        $storeBrokerageStatu = SystemConfigService::get('store_brokerage_statu') ? : 1;//获取后台分销类型
-        $res2 = self::set([
-            'account'=>'rt'.$routineUser['uid'].time(),
-            'pwd'=>md5(123456),
+        if($spread_uid) $res1 = self::where('uid',$spread_uid)->inc('spread_count',1);//推荐人数+1
+        $res2 = self::insert([
+            'account'=>'rt'.$routineUser['uid'].time(),//用户账号
+            'pwd'=>md100(123456),//默认密码
             'nickname'=>$routineUser['nickname']?:'',
             'avatar'=>$routineUser['headimgurl']?:'',
             'spread_uid'=>$spread_uid,
-//            'is_promoter'=>$spread_uid || $storeBrokerageStatu != 1 ? 1: 0,
             'spread_time'=>$spread_uid ? time() : 0,
             'uid'=>$routineUser['uid'],
             'add_time'=>$routineUser['add_time'],
             'add_ip'=>Request::instance()->ip(),
             'last_time'=>time(),
-            'last_ip'=>Request::instance()->ip(),
-            'user_type'=>$routineUser['user_type']
+            'last_ip'=>Request::instance()->ip()
         ]);
         $res = $res1 && $res2;
-        self::checkTrans($res);
+        if(!$res){
+            Db::rollback();
+        }
+        Db::commit();
         return $res2;
     }
 

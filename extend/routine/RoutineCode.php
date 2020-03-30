@@ -1,5 +1,5 @@
 <?php
-namespace  app\core\model\routine;
+namespace  routine;
 
 
 use app\core\util\MiniProgramService;

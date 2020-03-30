@@ -7,7 +7,7 @@
  * Description:
  */
 namespace app\app_api\controller;
-use app\core\util\TokenService;
+use service\TokenService;
 use service\Json;
 use service\JsonService;
 use service\UtilService;

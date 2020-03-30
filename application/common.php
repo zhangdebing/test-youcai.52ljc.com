@@ -21,3 +21,11 @@ function filterEmoji($str)
         $str);
     return $str;
 }
+/**
+ * @desc 密码加密方式
+ * @param $string
+ * @return string
+ */
+function md100($string) {
+    return md5('C-H_t-X' . $string);
+}
