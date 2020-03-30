@@ -12,6 +12,7 @@ use service\UtilService;
 use think\Cache;
 use think\Controller;
 use think\Request;
+use app\extra\services\MiniProgramService;
 use EasyWeChat\MiniProgram\Sns\Sns;
 class Login extends Controller{
 
@@ -31,7 +32,7 @@ class Login extends Controller{
             return JsonService::fail('授权失败,参数有误');
         if ($code && !$session_key) {
             try {
-                $userInfoCong = (new Sns())->getSessionKey($code);
+                $userInfoCong = MiniProgramService::getUserInfo($code);
                 $session_key = $userInfoCong['session_key'];
                 $cache_key = md5(time() . $code);
                 Cache::set('eb_api_code_' . $cache_key, $session_key, 86400);
