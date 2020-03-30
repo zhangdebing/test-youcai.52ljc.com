@@ -97,7 +97,7 @@ class User extends Model
     }
 
     /**
-     * TODO 查询当前用户信息
+     * TODO 查询当前用户信息zdb
      * @param $uid  $uid 用户编号
      * @param string $field $field 查询的字段
      * @return array
