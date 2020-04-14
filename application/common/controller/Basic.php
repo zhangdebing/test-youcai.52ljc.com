@@ -1,22 +1,16 @@
 <?php
 namespace app\app_api\controller;
 
-use app\core\behavior\UserBehavior;
-use service\HookService;
-use app\core\util\TokenService;
 use service\JsonService;
 use service\UtilService;
 use think\Config;
 use think\Controller;
-use app\ebapi\model\user\User;
-use think\Hook;
-
-
+use app\app_api\model\user\User;
+use service\TokenService;
 class Basic extends Controller
 {
     //是否为调试模式 生产模式下请改为false
     protected $Debug=true;
-
 
     protected function _initialize()
     {
@@ -49,8 +43,7 @@ class Basic extends Controller
         }else $this->fail('没有获取到用户信息,请传入token验证您的身份信息',[],402);
         if((!$userInfo || !isset($userInfo)) && $check===false) $this->fail('用户信息获取失败,没有这样的用户!',[],402);
         if(isset($userInfo)){
-            if(!$userInfo->status) $this->fail('您已被禁止登录',[],401);
-            HookService::listen('init',$userInfo,null,false,UserBehavior::class);
+            if(!$us4erInfo->status) $this->fail('您已被禁止登录',[],401);
             return $userInfo->toArray();
         }else return ['uid'=>0];
     }
